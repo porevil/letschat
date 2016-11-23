@@ -31,13 +31,9 @@ export class LoginPage {
 
   login(): void {
     this.loading.present();
-  //this.debug('facebook login')
     Facebook.login(['public_profile']).then((response) => {
-      //this.debug('facebook getprofile start ')
       this.getProfile(); 
-      //this.debug('facebook getprofile end')
     }, (err) => {
-      //this.debug('facebook getprofile error')
       let alert = this.alertCtrl.create({
         title: 'Oops!',
         subTitle: 'Something went wrong, please try again later.',
