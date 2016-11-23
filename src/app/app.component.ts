@@ -9,7 +9,7 @@ import { Data } from '../providers/data';
 
 
 @Component({
-  template: `<ion-nav [root]="rootPage"></ion-nav>`
+  templateUrl: 'app.html'
 })
 export class MyApp {
   //rootPage = HomePage;
@@ -19,20 +19,20 @@ export class MyApp {
   aboutPage: any = AboutPage;
   // https://6c9ec0f0-311e-4779-8f3c-ed0522b3dcfc-bluemix.cloudant.com/letschatdb/_all_docs?limit=100
   constructor(public platform: Platform, public dataService: Data, public menu: MenuController) {
+    console.log('MyApp constructor')
     platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
-      platform.ready().then(() => {
-      });
+
     });
   }
 
   openPage(page): void {
+    console.log('openPage')
     this.menu.close();
     this.nav.setRoot(page);
   }
 
   logout(): void {
+    console.log('logout')
     this.menu.close();
     this.menu.enable(false);
     this.nav.setRoot(LoginPage);

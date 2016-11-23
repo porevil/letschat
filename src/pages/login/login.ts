@@ -6,7 +6,6 @@ import { Data } from '../../providers/data';
 
 /*
   Generated class for the Login page.
-
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 */
@@ -31,11 +30,11 @@ export class LoginPage {
   }
 
   login(): void {
-    //this.loading.present();
-  this.debug('facebook login')
+    this.loading.present();
+  //this.debug('facebook login')
     Facebook.login(['public_profile']).then((response) => {
       //this.debug('facebook getprofile start ')
-      this.getProfile();
+      this.getProfile(); 
       //this.debug('facebook getprofile end')
     }, (err) => {
       //this.debug('facebook getprofile error')
@@ -55,12 +54,13 @@ export class LoginPage {
     Facebook.api('/me?fields=id,name,picture', ['public_profile']).then(
       (response) => {
         //this.debug('facebook api response')
-        console.log(response);
+        //console.log(response);
         this.dataService.fbid = response.id;
         this.dataService.username = response.name;
         this.dataService.picture = response.picture.data.url;
         //this.menu.enable(true);
-        this.debug('Hi '+this.dataService.username+' Welcome to Let s Chat app enjoy! ')
+        this.loading.dismiss();
+        this.debug('Hi '+this.dataService.username+' Welcome to LETS CHAT enjoy! ')
         this.nav.setRoot(HomePage);
       }, (err) => {
         console.log(err);
