@@ -3,6 +3,7 @@ import { Platform, NavController, MenuController, AlertController, LoadingContro
 import { Facebook } from 'ionic-native';
 import { HomePage } from '../home/home';
 import { Data } from '../../providers/data';
+//import { FireData } from '../../providers/firedata';
 
 /*
   Generated class for the Login page.
@@ -16,9 +17,11 @@ import { Data } from '../../providers/data';
 export class LoginPage {
 
   loading: any;
-
+  enableFacebook: boolean;
   constructor(public nav: NavController, public platform: Platform,
     public menu: MenuController, public dataService: Data, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    console.log(' Constructor Login Page');
+    this.enableFacebook = true;
     this.loading = this.loadingCtrl.create({
       content: 'Authenticating...'
     });
@@ -31,6 +34,7 @@ export class LoginPage {
 
   login(): void {
     this.loading.present();
+    if(this.enableFacebook){
     Facebook.login(['public_profile']).then((response) => {
       this.getProfile(); 
     }, (err) => {
@@ -42,7 +46,14 @@ export class LoginPage {
       //this.loading.dismiss();
       alert.present();
     });
-
+    }else{
+        this.debug('disable FB')
+        this.dataService.fbid = 1234568879;
+        this.dataService.username = 'porevil';
+        this.dataService.picture = 'n/a';
+        this.nav.setRoot(HomePage);
+        this.loading.dismiss();
+    }
   }
 
   getProfile(): void {

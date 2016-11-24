@@ -1,5 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Data } from '../../providers/data';
+//import { FireData } from '../../providers/firedata';
+import { LastDirective } from 'LastDirective';
 
 @Component({
   selector: 'page-home',
@@ -15,7 +17,7 @@ export class HomePage {
   constructor(public dataService: Data) {
     this.dataService.getDocuments().then((data) => {
       this.messages = data;
-      this.chat.scrollToBottom();
+      console.log('return message ' + this.messages);
     });
   }
 
@@ -27,9 +29,19 @@ export class HomePage {
       'picture': this.dataService.picture,
       'message': this.chatMessage
     };
-    //this.messages.push(message);
+    this.messages.push(message);
+
     this.dataService.addDocument(message);
     this.chatMessage = '';
-  }
 
+  }
+  scrolldown() {
+    console.log('scrolldown');
+    this.chat.scrollToBottom(300).then(() => {
+      console.log('scroll success')
+    }, (err) => {
+      console.log('scroll fail')
+    }
+    );
+  }
 }

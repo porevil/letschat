@@ -10,7 +10,7 @@
 </ion-header>
 <ion-content class="home" #chat id="chat">
   <ion-list no-lines>
-    <ion-item *ngFor="let message of messages">
+    <ion-item *ngFor="let message of messages; let last=last" [isLast]="last" (lastDone)="scrolldown()">
       <ion-avatar item-left class="animate-in-primary">
         <img [src]="message.picture">
       </ion-avatar>

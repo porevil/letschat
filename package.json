@@ -22,7 +22,10 @@
     "@angular/platform-browser": "2.0.0",
     "@angular/platform-browser-dynamic": "2.0.0",
     "@angular/platform-server": "2.0.0",
+    "@ionic/app-scripts": "0.0.46",
     "@ionic/storage": "1.1.6",
+    "angularfire2": "^2.0.0-beta.6",
+    "firebase": "^3.6.1",
     "ionic-angular": "2.0.0-rc.1",
     "ionic-native": "2.2.3",
     "ionicons": "3.0.0",
@@ -32,6 +35,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.38",
+    "@types/request": "0.0.30",
     "typescript": "2.0.6"
   },
   "description": "io2-hotels: An Ionic project",
