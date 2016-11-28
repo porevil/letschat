@@ -58,7 +58,7 @@ export class LoginPage {
 
   getProfile(): void {
     //this.debug('facebook api in progress')
-    Facebook.api('/me?fields=id,name,picture', ['public_profile']).then(
+        Facebook.api('/me?fields=id,name,picture,email,first_name,last_name,age_range,gender', ['public_profile']).then(
       (response) => {
         //this.debug('facebook api response')
         //console.log(response);
