@@ -5,8 +5,8 @@ import { StatusBar } from 'ionic-native';
 import { HomePage } from '../pages/home/home';
 import { AboutPage } from '../pages/about/about';
 import { LoginPage } from '../pages/login/login';
-import { Data } from '../providers/data';
-//import { FireData } from '../providers/firedata';
+//import { Data } from '../providers/data';
+import { FireData } from '../providers/firedata';
 
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +18,7 @@ export class MyApp {
   homePage: any = HomePage;
   aboutPage: any = AboutPage;
 
-  constructor(public platform: Platform, public dataService: Data, public menu: MenuController) {
+  constructor(public platform: Platform, public dataService: FireData, public menu: MenuController) {
     console.log('MyApp constructor')
     platform.ready().then(() => {
 

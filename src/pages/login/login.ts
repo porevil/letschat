@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Platform, NavController, MenuController, AlertController, LoadingController } from 'ionic-angular';
 import { Facebook } from 'ionic-native';
 import { HomePage } from '../home/home';
-import { Data } from '../../providers/data';
-//import { FireData } from '../../providers/firedata';
+//import { Data } from '../../providers/data';
+import { FireData } from '../../providers/firedata';
 
 /*
   Generated class for the Login page.
@@ -19,7 +19,7 @@ export class LoginPage {
   loading: any;
   enableFacebook: boolean;
   constructor(public nav: NavController, public platform: Platform,
-    public menu: MenuController, public dataService: Data, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    public menu: MenuController, public dataService: FireData, public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     console.log(' Constructor Login Page');
     this.enableFacebook = true;
     this.loading = this.loadingCtrl.create({

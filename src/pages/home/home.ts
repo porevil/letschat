@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Data } from '../../providers/data';
-//import { FireData } from '../../providers/firedata';
+//import { Data } from '../../providers/data';
+import { FireData } from '../../providers/firedata';
 import { LastDirective } from 'LastDirective';
 
 @Component({
@@ -14,7 +14,7 @@ export class HomePage {
   chatMessage: string = '';
   messages: any = [];
 
-  constructor(public dataService: Data) {
+  constructor(public dataService: FireData) {
     this.dataService.getDocuments().then((data) => {
       this.messages = data;
       console.log('return message ' + this.messages);

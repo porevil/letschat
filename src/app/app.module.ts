@@ -4,14 +4,14 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { AboutPage } from '../pages/about/about';
-import { Data } from '../providers/data';
-//import { FireData } from '../providers/firedata';
+//import { Data } from '../providers/data';
+import { FireData } from '../providers/firedata';
 import { LastDirective } from '../pages/home/LastDirective';
 // Import the AF2 Module
-//import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 // AF2 Settings
-/*
+
 export const firebaseConfig = {
   apiKey: "AIzaSyBJWjtLS2CfXCt-7IsTTCDfclqqbir_Fho",
   authDomain: "letschat-1518c.firebaseapp.com",
@@ -24,7 +24,7 @@ const myFirebaseAuthConfig = {
     provider: AuthProviders.Password,
     method: AuthMethods.Password
 }
-*/
+
 @NgModule({
   declarations: [
     MyApp,
@@ -35,7 +35,7 @@ const myFirebaseAuthConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    //AngularFireModule.initializeApp(firebaseConfig,myFirebaseAuthConfig)
+    AngularFireModule.initializeApp(firebaseConfig,myFirebaseAuthConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,6 +44,6 @@ const myFirebaseAuthConfig = {
     LoginPage,
     AboutPage
   ],
-  providers: [Data]
+  providers: [FireData]
 })
 export class AppModule { }
